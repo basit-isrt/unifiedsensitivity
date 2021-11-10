@@ -15,7 +15,8 @@ Description: An implementation of an extended verstion of the marginal sensitivi
 Depends: R (>= 3.1.0)
 Imports:
     parallel,
-    tidyverse
+    tidyverse,
+    fastDummies
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2

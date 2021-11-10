@@ -271,8 +271,6 @@ extrema.os.unified <-
 #' @param alpha Significance level
 #' @param parallel Should parallel computing be used? (TRUE or FALSE)
 #' @param B Number of Bootstrap resamples.
-
-#' @import parallel
 #'
 #' @return A (1 - alpha) confidence interval
 #'
@@ -319,10 +317,10 @@ bootsens.os.unified <-
            alpha = 0.1,
            parallel = FALSE,
            B = 1000) {
-    no.cores <- ifelse(parallel, detectCores(), 1)
+    no.cores <- ifelse(parallel, parallel::detectCores(), 1)
     n <- dim(data)[1]
 
-    out <- mclapply(1:B, function(iter) {
+    out <- parallel::mclapply(1:B, function(iter) {
       s <- sample(1:n, n, TRUE)
 
       res <-
