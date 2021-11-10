@@ -274,6 +274,7 @@ extrema.os.unified <-
 #'
 #' @return A (1 - alpha) confidence interval
 #'
+#' @import parallel
 #' @export
 #'
 #' @examples
