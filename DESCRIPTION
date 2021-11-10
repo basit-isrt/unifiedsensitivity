@@ -1,6 +1,6 @@
 Package: unifiedsensitivity
 Type: Package
-Title: unifiedsensitivity: Perform Sensitivity Analysis of Causal Effects in Observational Studies with Binary or Multivalued Treatments
+Title: Perform Sensitivity Analysis of Causal Effects in Observational Studies with Binary or Multivalued Treatments
 Version: 0.1.0
 Authors@R: person("Md. Abdul", "Basit", email = "abasit@isrt.ac.bd", role = c("aut", "cre"))
 Description: An implementation of an extended verstion of the marginal sensitivity
