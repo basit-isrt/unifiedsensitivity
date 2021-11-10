@@ -76,7 +76,6 @@ the specified sensitivity analysis framework
 }}
 
 \examples{
-\dontrun{
 # sensitivity analysis using the mtcars dataset
 # Let mpg be the outcome and cyl be the treatment with three levels
 
@@ -103,8 +102,6 @@ extrema.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
 bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
-}
-\dontrun{
 # sensitivity analysis using the mtcars dataset
 # Let mpg be the outcome and cyl be the treatment with three levels
 
@@ -131,5 +128,4 @@ extrema.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
 bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
-}
 }

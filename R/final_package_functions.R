@@ -199,7 +199,6 @@ extrema.cf.mean <-
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' # sensitivity analysis using the mtcars dataset
 #' # Let mpg be the outcome and cyl be the treatment with three levels
 #'
@@ -226,7 +225,6 @@ extrema.cf.mean <-
 #' bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
 #'                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
 #'                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
-#'}
 extrema.os.unified <-
   function(data,
            A_name,
@@ -307,7 +305,6 @@ extrema.os.unified <-
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' # sensitivity analysis using the mtcars dataset
 #' # Let mpg be the outcome and cyl be the treatment with three levels
 #'
@@ -334,7 +331,6 @@ extrema.os.unified <-
 #' bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
 #'                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
 #'                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
-#'}
 bootsens.os.unified <-
   function(data,
            A_name,
