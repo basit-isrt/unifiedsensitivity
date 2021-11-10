@@ -290,6 +290,7 @@ extrema.os.unified <-
 #'                    contrast = c(1, 0, -1), method = "RR")
 #'
 #' ## 90% Confidence interval
+#' set.seed(100)
 #' bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
 #'                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0,
 #'                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
@@ -301,6 +302,7 @@ extrema.os.unified <-
 #'                    contrast = c(1, 0, -1), method = "RR")
 #'
 #' ## 90% Confidence interval
+#' set.seed(100)
 #' bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
 #'                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
 #'                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
@@ -319,6 +321,7 @@ bootsens.os.unified <-
            parallel = FALSE,
            B = 1000) {
     no.cores <- ifelse(parallel, parallel::detectCores(), 1)
+
     n <- dim(data)[1]
 
     out <- parallel::mclapply(1:B, function(iter) {
