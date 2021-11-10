@@ -319,6 +319,7 @@ bootsens.os.unified <-
            parallel = FALSE,
            B = 1000) {
     no.cores <- ifelse(parallel, parallel::detectCores(), 1)
+
     n <- dim(data)[1]
 
     out <- parallel::mclapply(1:B, function(iter) {
