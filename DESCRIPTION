@@ -1,0 +1,20 @@
+Package: unifiedsensitivity
+Type: Package
+Title: unifiedsensitivity: Perform Sensitivity Analysis of Causal Effects in Observational Studies with Binary or Multivalued Treatments
+Version: 0.1.0
+Authors@R: person("Md. Abdul", "Basit", email = "abasit@isrt.ac.bd", role = c("aut", "cre"))
+Description: An implementation of an extended verstion of the marginal sensitivity
+    sensitivity model proposed by Qingyuan Zhao, Dylan S. Small and Bhaswar B.
+    Bhattacharya (2019) in R. It can be used to perform sensitivity analysis of
+    IPW estimates of causal effects in observational studies with binary as well
+    as multivalued treatments. The magnitude of unmeasured confounding can be 
+    specified using Risk Ratios or Odds Ratios between the observed propensity
+    scores and the true (unobserved) propensity scores. Apart from the stabilised
+    IPW (SIPW) estimators, a doubly robust augmented IPW (AIPW) estimator has also
+    been implemented.
+Depends: R (>= 3.1.0)
+Imports:
+    parallel,
+    tidyverse
+Encoding: UTF-8
+LazyData: true
