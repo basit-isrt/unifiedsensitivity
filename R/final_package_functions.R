@@ -4,16 +4,15 @@
 #' Obtain the partially identified point estimate intervals of counterfactual
 #' means under the Odds Ratio Framework
 #'
-#' @param A Treatment indicator
-#' @param Y Outcome
-#' @param gamma Sensitivity parameter (log odds ratio)
-#' @param fitted.probs Fitted (generalized) propensity scores
+#' @param A treatment indicator
+#' @param Y outcome
+#' @param gamma sensitivity parameter (log odds ratio)
+#' @param fitted.probs fitted (generalized) propensity scores
 #'
 #' @return The partially identified interval of the IPW estimator.
 #'
 #' @export
 #'
-
 get.extrema.OR <- function(A, Y, gamma = 0, fitted.probs) {
   fitted.logit <- qlogis(fitted.probs)
 
@@ -106,9 +105,9 @@ get.extrema.RR <- function(A, Y, gamma = 0, fitted.probs) {
 #'
 #' @param data A \code{\link[base:data.frame]{data.frame}} containing all variables required for the analysis
 #' @param A_name the name of the treatment variable in the data frame
-#' @param gps.formula a formula object that specifies the regression model for GPS
+#' @param gps.formula an object of class \code{\link[stats:formula]{formula}} that specifies the regression model for GPS
 #'
-#' @return A matrix of the estimates GPS
+#' @return A matrix of the estimated GPS
 #'
 #' @export
 #'
@@ -138,8 +137,8 @@ gps.estimate <- function(data, A_name, gps.formula) {
 #' Fit the outcome regression model
 #'
 #' @inheritParams gps.estimate
-#' @param outreg.formula a formula object that specifies the regression model for the outcome regression
-#' @param outreg.family a description of the error distribution and link function to be used in the model. All families from the glm function are supported
+#' @param outreg.formula an object of class \code{\link[stats:formula]{formula}} that specifies the regression model for the outcome regression
+#' @param outreg.family a description of the error distribution and link function to be used in the model. (See \code{\link[stats:family]{family}} for details of family functions.)
 #' @return The fitted outcome regression model object
 #'
 #' @export
@@ -161,15 +160,8 @@ outreg <-
 
 
 extrema.cf.mean <-
-  function(data_dummies,
-           A,
-           Y,
-           gamma = 0,
-           fitted.probs,
-           outreg.formula,
-           outreg.family = "gaussian",
-           AIPW = FALSE,
-           method = "RR") {
+  function(data_dummies, A, Y, gamma = 0, fitted.probs, outreg.formula,
+           outreg.family = "gaussian", AIPW = FALSE, method = "RR") {
     data_dummies[A == 1,]
     if (AIPW) {
       outreg.model <- outreg(data_dummies[A == 1,], outreg.formula,
@@ -197,7 +189,7 @@ extrema.cf.mean <-
 #' @param Y_name the name of the outcome variable in the data frame
 #' @param contrast the linear contrast to define the target estimand
 #' @param gamma sensitivity parameter (log odds ratio or log risk ratio)
-#' @param AIPW should the doubly robust AIPW estimator be implemented?
+#' @param AIPW should the doubly robust AIPW estimator be implemented? (TRUE or FALSE)
 #' @param method The sensitivity analysis framework to be used ("OR" or "RR")
 #'
 #' @import stats
@@ -225,7 +217,7 @@ extrema.os.unified <-
     treatment <- c(0, 0)
     control <- c(0, 0)
 
-    dummies <- fastDummies::dummy_cols(data[, A_name])[,-1]
+    dummies <- fastDummies::dummy_cols(data[, A_name])[, -1]
     colnames(dummies) <- paste0("A", seq_along(contrast))
 
     data_dummies <- cbind(data, dummies)
@@ -271,18 +263,17 @@ extrema.os.unified <-
     return(treatment + rev(control))
   }
 
-
-#' @describeIn extrema.os.unified Obtain a (1 - \alpha) confidence interval under
+#' @describeIn extrema.os.unified Obtain a (1 - alpha) confidence interval under
 #' the specified sensitivity analysis framework
 #'
 #' @inheritParams extrema.os.unified
 #' @param alpha Significance level
-#' @param parallel Should parallel computing be used?
+#' @param parallel Should parallel computing be used? (TRUE or FALSE)
 #' @param B Number of Bootstrap resamples.
 
 #' @import parallel
 #'
-#' @return A (1 - \alpha) confidence interval
+#' @return A (1 - alpha) confidence interval
 #'
 #' @export
 #'
@@ -309,7 +300,7 @@ bootsens.os.unified <-
       res <-
         tryCatch(
           extrema.os.unified(
-            data = data[s,],
+            data = data[s, ],
             A_name,
             Y_name,
             gps.formula,
@@ -334,7 +325,3 @@ bootsens.os.unified <-
       quantile(out[, 2], 1 - alpha / 2, na.rm = TRUE))
 
   }
-
-#' @param alpha Significance level
-#' @param parallel Should parallel computing be used?
-#' @param B Number of Bootstrap resamples.

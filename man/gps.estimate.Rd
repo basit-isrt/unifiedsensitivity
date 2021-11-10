@@ -11,10 +11,10 @@ gps.estimate(data, A_name, gps.formula)
 
 \item{A_name}{the name of the treatment variable in the data frame}
 
-\item{gps.formula}{a formula object that specifies the regression model for GPS}
+\item{gps.formula}{an object of class \code{\link[stats:formula]{formula}} that specifies the regression model for GPS}
 }
 \value{
-A matrix of the estimates GPS
+A matrix of the estimated GPS
 }
 \description{
 Estimate the generalized propensity scores using multinomial logistic

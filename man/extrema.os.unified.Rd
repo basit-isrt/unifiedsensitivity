@@ -41,23 +41,23 @@ bootsens.os.unified(
 
 \item{Y_name}{the name of the outcome variable in the data frame}
 
-\item{gps.formula}{a formula object that specifies the regression model for GPS}
+\item{gps.formula}{an object of class \code{\link[stats:formula]{formula}} that specifies the regression model for GPS}
 
 \item{contrast}{the linear contrast to define the target estimand}
 
 \item{gamma}{sensitivity parameter (log odds ratio or log risk ratio)}
 
-\item{AIPW}{should the doubly robust AIPW estimator be implemented?}
+\item{AIPW}{should the doubly robust AIPW estimator be implemented? (TRUE or FALSE)}
 
 \item{method}{The sensitivity analysis framework to be used ("OR" or "RR")}
 
-\item{outreg.formula}{a formula object that specifies the regression model for the outcome regression}
+\item{outreg.formula}{an object of class \code{\link[stats:formula]{formula}} that specifies the regression model for the outcome regression}
 
-\item{outreg.family}{a description of the error distribution and link function to be used in the model. All families from the glm function are supported}
+\item{outreg.family}{a description of the error distribution and link function to be used in the model. (See \code{\link[stats:family]{family}} for details of family functions.)}
 
 \item{alpha}{Significance level}
 
-\item{parallel}{Should parallel computing be used?}
+\item{parallel}{Should parallel computing be used? (TRUE or FALSE)}
 
 \item{B}{Number of Bootstrap resamples.}
 }

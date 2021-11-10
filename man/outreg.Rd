@@ -9,9 +9,9 @@ outreg(data, outreg.formula, outreg.family = "gaussian")
 \arguments{
 \item{data}{A \code{\link[base:data.frame]{data.frame}} containing all variables required for the analysis}
 
-\item{outreg.formula}{a formula object that specifies the regression model for the outcome regression}
+\item{outreg.formula}{an object of class \code{\link[stats:formula]{formula}} that specifies the regression model for the outcome regression}
 
-\item{outreg.family}{a description of the error distribution and link function to be used in the model. All families from the glm function are supported}
+\item{outreg.family}{a description of the error distribution and link function to be used in the model. (See \code{\link[stats:family]{family}} for details of family functions.)}
 }
 \value{
 The fitted outcome regression model object
