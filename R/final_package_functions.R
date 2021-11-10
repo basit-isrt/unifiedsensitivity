@@ -198,33 +198,7 @@ extrema.cf.mean <-
 #'
 #' @export
 #'
-#' @examples
-#' # sensitivity analysis using the mtcars dataset
-#' # Let mpg be the outcome and cyl be the treatment with three levels
-#'
-#' # sensitivity analysis for pairwise ATE between cylinder type 4 and 8
-#'
-#' # gamma = 0 (No unmeasured confounding)
-#' ## point estimate interval
-#' extrema.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
-#'                    gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0,
-#'                    contrast = c(1, 0, -1), method = "RR")
-#'
-#' ## 90% Confidence interval
-#' bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
-#'                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0,
-#'                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
-#'
-#' # gamma = 0.5
-#' ## point estimate interval
-#' extrema.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
-#'                    gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
-#'                    contrast = c(1, 0, -1), method = "RR")
-#'
-#' ## 90% Confidence interval
-#' bootsens.os.unified(data = mtcars, A_name = "cyl", Y_name = "mpg",
-#'                     gps.formula = cyl ~ disp + hp + drat + wt, gamma = 0.5,
-#'                     contrast = c(1, 0, -1), parallel = TRUE, alpha = 0.1)
+
 extrema.os.unified <-
   function(data,
            A_name,
