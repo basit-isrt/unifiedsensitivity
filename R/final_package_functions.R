@@ -119,7 +119,7 @@ gps.estimate <- function(data, A_name, gps.formula) {
   gps.formula = gsub(" ", "", gps.formula)
 
   fitted.probs <- nnet::multinom(formula = gps.formula,
-                                 data = data,
+                                 data = data, maxit = 1000,
                                  trace = F)$fitted.values
 
   ## Creating the propensity score matrix in the case of binary treatment
