@@ -69,8 +69,8 @@ get.extrema.RR <- function(A, Y, gamma = 0, fitted.probs) {
   eg <- eg[A == 1]
   gamma1 <- gamma1[A == 1]
   eg <- eg[order(-Y)]
-  Y <- Y[order(-Y)]
   gamma1 <- gamma1[order(-Y)]
+  Y <- Y[order(-Y)]
 
   ## maximization
   num.each.low <- Y * (exp(gamma1) * eg)
